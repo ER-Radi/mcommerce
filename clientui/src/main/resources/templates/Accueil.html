@@ -8,15 +8,20 @@
 </head>
 <body>
 
+    <div class="container">
+        <h1>Application Mcommerce</h1>
 
-<div class="container">
+        <div class="row">
+            <div th:each="produit : ${produits}" class="col-md-4 my-1">
+                <div th:href="@{|/details-produit/${produit.id}|}" >
+                    <img th:src="${produit.image}" class="card-img-top" />
+                    <p th:text="${produit.titre}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <h1>Application Mcommerce</h1>
 
-</div>
-
-
-<script type="text/javascript" src="webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
-
+    <script type="text/javascript" src="webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
 </body>
 </html>
