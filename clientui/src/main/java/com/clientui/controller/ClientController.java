@@ -56,6 +56,7 @@ public class ClientController {
     public String ficheProduit(@PathVariable int id, Model pModel) {
 
         ProductBean produit = mProduitProxy.recupererUnProduit(id);
+        produit.setPrix(24.99);
         pModel.addAttribute("produit", produit);
 
         return "FicheProduit";
