@@ -66,7 +66,7 @@ public class ClientController {
      * Étape (3) et (4)
      * Opération qui fait appel au microservice de commande pour placer une commande et récupérer les détails de la commande créée
      * */
-    @RequestMapping("/commander-produit/{idProduit}/{montant}")
+    @RequestMapping("/commander-produit/{pIdProduit}/{pMontant}")
     public String passerCommande(@PathVariable int pIdProduit, @PathVariable Double pMontant, Model pModel) {
 
         CommandeBean commande = new CommandeBean();
@@ -90,7 +90,7 @@ public class ClientController {
      * Étape (5)
      * Opération qui fait appel au microservice de paiement pour traiter un paiement
      * */
-    @RequestMapping(value = "/payer-commande/{idCommande}/{montantCommande}")
+    @RequestMapping(value = "/payer-commande/{pIdCommande}/{pMontantCommande}")
     public String payerCommande(@PathVariable int pIdCommande, @PathVariable Double pMontantCommande, Model pModel) {
 
         PaiementBean paiementAExecuter =  new PaiementBean();
