@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "microservice-produits", decode404 = false)
+@FeignClient(name = "zuul-server", contextId = "microserviceProduitsProxy")
 @RibbonClient(name = "microservice-produits")
 public interface MicroserviceProduitsProxy {
 
-    @GetMapping(value = "/Produits")
+    @GetMapping(value = "/microservice-produits/Produits")
     List<ProductBean> listeDesProduits();
 
-    @GetMapping( value = "/Produits/{id}")
+    @GetMapping( value = "/microservice-produits/Produits/{id}")
     ProductBean recupererUnProduit(@PathVariable("id") int id);
 
 }
